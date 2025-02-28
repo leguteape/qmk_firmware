@@ -16,17 +16,16 @@
 
 #include QMK_KEYBOARD_H
 
-// clang-format off
-enum layers{
-  MAC_BASE,
-  MAC_FN,
-  WIN_BASE,
-  WIN_FN
+enum layers {
+    MAC_BASE,
+    MAC_FN,
+    WIN_BASE,
+    WIN_FN,
 };
-
+// clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [MAC_BASE] = LAYOUT_ansi_84(
-     KC_ESC,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,     KC_F11,   KC_F12,   KC_DEL,   KC_SNAP,  RGB_MOD,
+     KC_ESC,   KC_BRID,  KC_BRIU,  KC_MCTL,  KC_LPAD,  RGB_VAD,  RGB_VAI,  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_MUTE,    KC_VOLD,  KC_VOLU,  KC_DEL,   KC_SNAP,  RGB_MOD,
      KC_GRV,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_BSLS,  KC_7,     KC_8,     KC_9,       KC_0,     KC_EQL,   KC_CAPS,            KC_PGUP,
      KC_TAB,   KC_Q,     KC_W,     KC_F,     KC_P,     KC_B,     KC_LBRC,  KC_J,     KC_L,     KC_U,     KC_Y,       KC_QUOT,  KC_MINS,  KC_SCLN,            KC_PGDN,
      KC_BSPC,  KC_A,     KC_R,     KC_S,     KC_T,     KC_G,     KC_RBRC,  KC_M,     KC_N,     KC_E,     KC_I,       KC_O,               KC_ENT,             KC_HOME,
@@ -34,12 +33,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_LCTL,  KC_LOPTN, KC_LCMMD,                               KC_SPC,                                 MO(MAC_FN), KC_RCMMD, KC_RCTL,  KC_LEFT,  KC_DOWN,  KC_RGHT),
 
 [MAC_FN] = LAYOUT_ansi_84(
-     _______,  KC_BRID,  KC_BRIU,  KC_SLEP,  KC_LPAD,  RGB_VAD,  RGB_VAI,  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_MUTE,    KC_VOLD,  KC_VOLU,  NK_TOGG,  BAT_LVL,  RGB_RMOD,
-     _______,  BT_HST1,  BT_HST2,  BT_HST3,  _______,  _______,  _______,  _______,  _______,  KC_7,     KC_8,       KC_9,     KC_PAST,  RGB_TOG,            RGB_HUI,
-     _______,  KC_INS,   KC_HOME,  KC_UP,    KC_END,   KC_PGUP,  _______,  _______,  KC_WH_U,  KC_4,     KC_5,       KC_6,     KC_PPLS,  _______,            RGB_HUD,
-     _______,  KC_DEL,   KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_PGDN,  _______,  _______,  KC_WH_D,  KC_1,     KC_2,       KC_3,               _______,            RGB_SAI,
-     _______,            KC_ESC,   KC_SNAP,  KC_MCTL,  _______,  _______,  _______,  KC_WH_L,  KC_WH_R,  KC_0,       KC_PSLS,            _______,  _______,  RGB_SAD,
-     _______,  _______,  _______,                                _______,                                _______,    _______,  _______,  _______,  _______,  _______),
+     _______,  KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,     KC_F11,   KC_F12,   NK_TOGG,  BAT_LVL,  RGB_RMOD,
+     _______,  BT_HST1,  BT_HST2,  BT_HST3,  _______,  _______,  _______,  _______,  _______,  KC_7,     KC_8,       KC_9,     KC_PAST,  RGB_TOG,            _______,
+     _______,  KC_INS,   KC_HOME,  KC_UP,    KC_END,   KC_PGUP,  _______,  _______,  KC_WH_U,  KC_4,     KC_5,       KC_6,     KC_PPLS,  _______,            _______,
+     _______,  KC_DEL,   KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_PGDN,  _______,  _______,  KC_WH_D,  KC_1,     KC_2,       KC_3,               _______,            _______,
+     _______,            KC_ESC,   KC_MCTL,  KC_SNAP,  _______,  _______,  _______,  KC_WH_L,  KC_WH_R,  KC_0,       KC_PSLS,            _______,  RGB_SAI,  _______,
+     _______,  _______,  _______,                                _______,                                _______,    _______,  _______,  RGB_HUD,  RGB_SAD,  RGB_HUI),
 
 [WIN_BASE] = LAYOUT_ansi_84(
      KC_ESC,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,     KC_F11,   KC_F12,   KC_DEL,   KC_PSCR,  RGB_MOD,
@@ -50,10 +49,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_LCTL,  KC_LALT,  KC_LGUI,                                KC_SPC,                                 MO(WIN_FN), KC_RALT,  KC_RCTL,  KC_LEFT,  KC_DOWN,  KC_RGHT),
 
 [WIN_FN] = LAYOUT_ansi_84(
-     _______,  KC_BRID,  KC_BRIU,  KC_SLEP,  KC_FILE,  RGB_VAD,  RGB_VAI,  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_MUTE,    KC_VOLD,  KC_VOLU,  NK_TOGG,  BAT_LVL,  RGB_RMOD,
-     _______,  BT_HST1,  BT_HST2,  BT_HST3,  _______,  _______,  _______,  _______,  _______,  KC_7,     KC_8,       KC_9,     KC_PAST,  RGB_TOG,            RGB_HUI,
-     _______,  KC_INS,   KC_HOME,  KC_UP,    KC_END,   KC_PGUP,  _______,  _______,  KC_WH_U,  KC_4,     KC_5,       KC_6,     KC_PPLS,  _______,            RGB_HUD,
-     _______,  KC_DEL,   KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_PGDN,  _______,  _______,  KC_WH_D,  KC_1,     KC_2,       KC_3,               _______,            RGB_SAI,
-     _______,            KC_ESC,   KC_PSCR,  KC_APP,   _______,  _______,  _______,  KC_WH_L,  KC_WH_R,  KC_0,       KC_PSLS,            _______,  _______,  RGB_SAD,
-     _______,  _______,  _______,                                _______,                                _______,    _______,  _______,  _______,  _______,  _______)
+     _______,  KC_BRID,  KC_BRIU,  KC_TASK,  KC_FILE,  RGB_VAD,  RGB_VAI,  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_MUTE,    KC_VOLD,  KC_VOLU,  NK_TOGG,  BAT_LVL,  RGB_RMOD,
+     _______,  BT_HST1,  BT_HST2,  BT_HST3,  _______,  _______,  _______,  _______,  _______,  KC_7,     KC_8,       KC_9,     KC_PAST,  RGB_TOG,            _______,
+     _______,  KC_INS,   KC_HOME,  KC_UP,    KC_END,   KC_PGUP,  _______,  _______,  KC_WH_U,  KC_4,     KC_5,       KC_6,     KC_PPLS,  _______,            _______,
+     _______,  KC_DEL,   KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_PGDN,  _______,  _______,  KC_WH_D,  KC_1,     KC_2,       KC_3,               _______,            _______,
+     _______,            KC_ESC,   KC_APP,   KC_PSCR,  _______,  _______,  _______,  KC_WH_L,  KC_WH_R,  KC_0,       KC_PSLS,            _______,  RGB_SAI,  _______,
+     _______,  _______,  _______,                                _______,                                _______,    _______,  _______,  RGB_HUD,  RGB_SAD,  RGB_HUI)
 };
